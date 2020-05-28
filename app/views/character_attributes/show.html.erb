@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Str:</strong>
+  <%= @character_attribute.str %>
+</p>
+
+<p>
+  <strong>Agi:</strong>
+  <%= @character_attribute.agi %>
+</p>
+
+<p>
+  <strong>Vit:</strong>
+  <%= @character_attribute.vit %>
+</p>
+
+<p>
+  <strong>Int:</strong>
+  <%= @character_attribute.int %>
+</p>
+
+<p>
+  <strong>Dex:</strong>
+  <%= @character_attribute.dex %>
+</p>
+
+<p>
+  <strong>Luk:</strong>
+  <%= @character_attribute.luk %>
+</p>
+
+<%= link_to 'Edit', edit_character_attribute_path(@character_attribute) %> |
+<%= link_to 'Back', character_attributes_path %>
