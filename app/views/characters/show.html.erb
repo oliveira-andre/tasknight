@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @character.name %>
+</p>
+
+<p>
+  <strong>Level:</strong>
+  <%= @character.level %>
+</p>
+
+<p>
+  <strong>Hp:</strong>
+  <%= @character.hp %>
+</p>
+
+<p>
+  <strong>Mp:</strong>
+  <%= @character.mp %>
+</p>
+
+<p>
+  <strong>Gold:</strong>
+  <%= @character.gold %>
+</p>
+
+<p>
+  <strong>Class:</strong>
+  <%= @character.character_class.name %>
+</p>
+
+<%= link_to 'Edit', edit_character_path(@character) %> |
+<%= link_to 'Back', characters_path %>
