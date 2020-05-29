@@ -8,6 +8,12 @@ gem 'rails', '~> 5.2.4', '>= 5.2.4.3'
 
 gem 'pg', '>= 0.18', '< 2.0'
 
+gem 'jquery-rails'
+
+gem 'materialize-sass'
+
+gem 'material_icons'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
