@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root :to => "home#show"
 
+  devise_for :users, controllers: {
+    sessions: 'users/sessions'
+  }
+
   resources :tasks
   resources :monsters
   resources :character_attributes

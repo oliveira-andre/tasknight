@@ -24,8 +24,20 @@ class TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create
-    #[TODO] Get id of the character of User
-    @task = Task.new(task_params.merge(character_id: 1))
+    if true #session[:task]
+      end_time = Time.now + 25.minutes
+      end_at = end_time.strftime("%b, %d %Y %H:%m:%s")
+      session[:task] = { "end_time" => end_time, "end_at" => end_at}
+
+      redirect_to root_path
+      return
+    else
+      @character = Character.find_by_name(session.id)
+
+      @task = Task.new(task_params)
+      @task.character_id = @character.id
+      session[:task] = @task
+    end
 
     respond_to do |format|
       if @task.save
