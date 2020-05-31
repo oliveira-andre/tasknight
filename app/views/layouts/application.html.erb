@@ -12,8 +12,12 @@
     <div class="nav-wrapper blue">
       <a href="#" class="brand-logo">TasKnight</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="badges.html">Register</a></li>
-        <li><a href="collapsible.html">Login</a></li>
+        <% if user_signed_in? %>
+          <%= link_to('Sair', destroy_user_session_path, method: :delete) %>
+        <% else %>
+          <li><a href="/users/sign_up">Registrar</a></li>
+          <li><a href="/users/sign_in">Fazer Login</a></li>
+        <% end %>
       </ul>
     </div>
   </nav>
