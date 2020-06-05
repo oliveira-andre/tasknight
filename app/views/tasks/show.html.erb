@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+
+<% if false %>
 <p>
   <strong>Name:</strong>
   <%= @task.name %>
@@ -29,6 +31,83 @@
   <strong>Character:</strong>
   <%= @task.character %>
 </p>
+<% end %>
 
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>
+<div class="row center">
+  <h6 class="header center gray-text">
+
+    <% if @task.finished? %>
+      <b>Você Venceu!</b>
+    <% else %>
+      <p id="count_down"></p>
+    <% end %>
+  </h6>
+
+  <div class="col s6">
+    <b><%= @task.character.name %></b>
+    <br/>
+    <%= image_tag("knight.jpg",  width: "140") %>
+  </div>
+  <div class="col s6">
+    <b>Goblin</b>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <%= image_tag("goblin.png",  width: "80") %>
+  </div>
+  </div>
+  <% if @task.finished? %>
+    <div class="container">
+      <ul class="collection with-header small">
+        <li class="collection-header"><h6><b>Recompensas</b></h6></li>
+        <% @task.rewards.each do |reward| %>
+          <li class="collection-item"><div><%= reward[:name] %><a href="#!" class="secondary-content">1x</a></div></li>
+        <% end %>
+      </ul>
+
+      <ul class="collection with-header small">
+        <li class="collection-header"><h6><b>Log de Batalha</b></h6></li>
+        <% @task.battle_actions.each_with_index do |action, index| %>
+          <% index += 1 %>
+          <li class="collection-item"><div><b>Turno <%= index %>:</b> <%= action[:text] %><a href="#!" class="secondary-content"></a></div></li>
+        <% end %>
+      </ul>
+    </div>
+  <% else %>
+    <div class="row center">
+      <h5 class="header col s12 light">O resultado da batalha será exibido após 25 minutos.</h5>
+    </div>
+  <% end %>
+</div>
+
+<script>
+  // Set the date we're counting down to
+  var countDownDate = new Date("<%= @task.end_at %>").getTime();
+
+  // Update the count down every 1 second
+  var x = setInterval(function() {
+    // Get today's date and time
+    var now = new Date().getTime();
+
+    // Find the distance between now and the count down date
+    var distance = countDownDate - now;
+
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Display the result in the element with id="count_down"
+    document.getElementById("count_down").innerHTML = minutes + "m " + seconds + "s ";
+
+    // If the count down is finished, write some text
+    if (distance < 0) {
+      clearInterval(x);
+      document.getElementById("count_down").innerHTML = "EXPIRED";
+      location.reload();
+    }
+  }, 1000);
+</script>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_31_225519) do
+ActiveRecord::Schema.define(version: 2020_06_01_222358) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,8 +43,10 @@ ActiveRecord::Schema.define(version: 2020_05_31_225519) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "character_attribute_id"
+    t.bigint "user_id"
     t.index ["character_attribute_id"], name: "index_characters_on_character_attribute_id"
     t.index ["character_class_id"], name: "index_characters_on_character_classes_id"
+    t.index ["user_id"], name: "index_characters_on_user_id"
   end
 
   create_table "monsters", force: :cascade do |t|
@@ -82,6 +84,7 @@ ActiveRecord::Schema.define(version: 2020_05_31_225519) do
   end
 
   add_foreign_key "characters", "character_attributes"
+  add_foreign_key "characters", "users"
   add_foreign_key "monsters", "character_attributes"
   add_foreign_key "tasks", "characters"
 end

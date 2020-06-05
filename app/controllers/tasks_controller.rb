@@ -14,6 +14,7 @@ class TasksController < ApplicationController
 
   # GET /tasks/new
   def new
+    @character = current_user.character
     @task = Task.new
   end
 
@@ -24,23 +25,11 @@ class TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create
-    if true #session[:task]
-      end_time = Time.now + 25.minutes
-      end_at = end_time.strftime("%b, %d %Y %H:%m:%s")
-      session[:task] = { "end_time" => end_time, "end_at" => end_at}
-
-      redirect_to root_path
-      return
-    else
-      @character = Character.find_by_name(session.id)
-
-      @task = Task.new(task_params)
-      @task.character_id = @character.id
-      session[:task] = @task
-    end
+    @task = Task.new(task_params)
+    @task.character_id = current_user.character.id
 
     respond_to do |format|
-      if @task.save
+      if @task.save!
         format.html { redirect_to @task, notice: 'Task was successfully created.' }
         format.json { render :show, status: :created, location: @task }
       else
