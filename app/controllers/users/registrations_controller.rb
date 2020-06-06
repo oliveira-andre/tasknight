@@ -10,11 +10,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  def create
-    super
+  # def create
+  #   super
 
-    Character.create!(name: "#{rand(019283)}", level: 1, hp: 50, mp: 50, gold: 0, character_class: CharacterClass.first, character_attribute: CharacterAttribute.first)
-  end
+  # end
 
   # GET /resource/edit
   # def edit

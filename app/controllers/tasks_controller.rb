@@ -25,7 +25,7 @@ class TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create
-    @task = Task.new(task_params)
+    @task = Task.new(name: "default", description: "default")
     @task.character_id = current_user.character.id
 
     respond_to do |format|
@@ -70,7 +70,7 @@ class TasksController < ApplicationController
     end
 
     # Only allow a list of trusted parameters through.
-    def task_params
-      params.require(:task).permit(:name, :description, :opponent_id, :finished, :winner_id, :character_id)
-    end
+    # def task_params
+    #   params.require(:task).permit(:name, :description, :finished, :winner_id, :character_id)
+    # end
 end

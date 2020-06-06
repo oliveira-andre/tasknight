@@ -10,17 +10,17 @@
       </ul>
     </div>
   <% end %>
+  <% if false %>
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-
+    <div class="field">
+      <%= form.label :description %>
+      <%= form.text_area :description %>
+    </div>
+  <% end %>
   <div class="actions center">
     <button class="pulse btn-small waves-effect waves-light blue" type="submit"
     name="action">Iniciar Batalha

@@ -6,7 +6,7 @@ RSpec.describe "monsters/edit", type: :view do
       name: "MyString",
       level: 1,
       description: "MyText",
-      character_attribute: nil
+      character_attribute: FactoryBot.build(:character_attribute)
     ))
   end
 

@@ -11,7 +11,6 @@ class Task < ApplicationRecord
   end
 
   def finished?
-    return true
     end_time < Time.now
   end
 

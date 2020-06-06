@@ -34,19 +34,19 @@
 <% end %>
 
 <div class="row center">
-  <h6 class="header center gray-text">
+  <h4 class="header center gray-text">
 
     <% if @task.finished? %>
       <b>Você Venceu!</b>
     <% else %>
       <p id="count_down"></p>
     <% end %>
-  </h6>
+  </h4>
 
   <div class="col s6">
     <b><%= @task.character.name %></b>
     <br/>
-    <%= image_tag("knight.jpg",  width: "140") %>
+    <%= image_tag("knight2.jpg",  width: "240") %>
   </div>
   <div class="col s6">
     <b>Goblin</b>
@@ -55,7 +55,7 @@
     <br/>
     <br/>
     <br/>
-    <%= image_tag("goblin.png",  width: "80") %>
+    <%= image_tag("goblin.png",  width: "150") %>
   </div>
   </div>
   <% if @task.finished? %>
@@ -102,6 +102,7 @@
 
     // Display the result in the element with id="count_down"
     document.getElementById("count_down").innerHTML = minutes + "m " + seconds + "s ";
+    document.title = minutes + "m " + seconds + "s - Battle!";
 
     // If the count down is finished, write some text
     if (distance < 0) {
