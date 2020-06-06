@@ -1,14 +1,12 @@
 Rails.application.routes.draw do
-  root :to => "home#show"
 
-  devise_for :users, controllers: {
-    sessions: 'users/sessions'
-  }
-
+  devise_for :users
   resources :tasks
   resources :monsters
   resources :character_attributes
   resources :characters
   resources :character_classes
+
+  root :to => "home#show"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

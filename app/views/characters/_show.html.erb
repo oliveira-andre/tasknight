@@ -1,34 +1,37 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @character.name %>
-</p>
+<div class="container">
+  <%= image_tag("knight2.jpg",  width: "240") %>
 
-<p>
-  <strong>Level:</strong>
-  <%= @character.level %>
-</p>
+  <div class='attributes' style='float: left;'>
+    <p>
+      <strong>Name:</strong>
+      <%= @character.name %>
+    </p>
 
-<p>
-  <strong>Hp:</strong>
-  <%= @character.hp %>
-</p>
+    <p>
+      <strong>Level:</strong>
+      <%= @character.level %>
+    </p>
 
-<p>
-  <strong>Mp:</strong>
-  <%= @character.mp %>
-</p>
+    <p>
+      <strong>Hp:</strong>
+      <%= @character.hp %>
+    </p>
 
-<p>
-  <strong>Gold:</strong>
-  <%= @character.gold %>
-</p>
+    <p>
+      <strong>Mp:</strong>
+      <%= @character.mp %>
+    </p>
 
-<p>
-  <strong>Class:</strong>
-  <%= @character.character_class.name %>
-</p>
+    <p>
+      <strong>Gold:</strong>
+      <%= @character.gold %>
+    </p>
 
-<%= link_to 'Edit', edit_character_path(@character) %> |
-<%= link_to 'Back', characters_path %>
+    <p>
+      <strong>Class:</strong>
+      <%= @character.character_class.name %>
+    </p>
+  </div>
+</div>

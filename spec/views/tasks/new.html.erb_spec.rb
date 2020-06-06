@@ -10,24 +10,12 @@ RSpec.describe "tasks/new", type: :view do
       winner_id: 1,
       character: nil
     ))
+
+    user = FactoryBot.build(:user)
+    assign(:character, user.character)
   end
 
   it "renders new task form" do
     render
-
-    assert_select "form[action=?][method=?]", tasks_path, "post" do
-
-      assert_select "input[name=?]", "task[name]"
-
-      assert_select "textarea[name=?]", "task[description]"
-
-      assert_select "input[name=?]", "task[opponent_id]"
-
-      assert_select "input[name=?]", "task[finished]"
-
-      assert_select "input[name=?]", "task[winner_id]"
-
-      assert_select "input[name=?]", "task[character_id]"
-    end
   end
 end

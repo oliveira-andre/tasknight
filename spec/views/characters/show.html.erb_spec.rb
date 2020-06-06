@@ -8,7 +8,8 @@ RSpec.describe "characters/show", type: :view do
       hp: 3.5,
       mp: 4.5,
       gold: 5,
-      character_class: ""
+      character_class: FactoryBot.build(:character_class),
+      character_attribute: FactoryBot.build(:character_attribute)
     ))
   end
 
