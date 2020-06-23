@@ -1,2 +1,27 @@
-@import "materialize";
-@import "material_icons";
+@import "./header";
+
+* {
+  maring: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  min-height: 100%;
+}
+
+body {
+  color: white;
+  background: #1f1f1f;
+  height: auto;
+  min-height: 100%;
+}
+
+p {
+  color: white !important;
+}
+
+a {
+  color: white !important;
+}
