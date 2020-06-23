@@ -1,0 +1,29 @@
+nav {
+  .nes-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px !important;
+
+    .logo-title {
+      color: white;
+      font-weight: bold;
+      font-size: 24px;
+    }
+
+    ul {
+      list-style: none;
+      display: flex;
+
+      li {
+        a {  
+          color: white !important;
+        }
+
+        & + li {
+          margin-left: 20px;
+        }
+      }
+    }
+  }
+}
