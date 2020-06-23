@@ -5,13 +5,14 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= stylesheet_link_tag '//unpkg.com/nes.css@2.3.0/css/nes.min.css', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <nav>
-    <div class="nav-wrapper blue">
-      <a href="#" class="brand-logo">TasKnight</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
+    <div class="nes-container">
+      <%= link_to 'TaskNight', '/', class: "logo-title" %>
+      <ul class="right">
         <% if user_signed_in? %>
           <%= link_to('Sair', destroy_user_session_path, method: :delete) %>
         <% else %>
