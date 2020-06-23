@@ -1,19 +1,21 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "characters/show", type: :view do
+RSpec.describe 'characters/show', type: :view do
   before(:each) do
     @character = assign(:character, Character.create!(
-      name: "Name",
-      level: 2,
-      hp: 3.5,
-      mp: 4.5,
-      gold: 5,
-      character_class: FactoryBot.build(:character_class),
-      character_attribute: FactoryBot.build(:character_attribute)
-    ))
+                                      name: 'Name',
+                                      level: 2,
+                                      hp: 3.5,
+                                      mp: 4.5,
+                                      gold: 5,
+                                      character_class: FactoryBot.build(:character_class),
+                                      character_attribute: FactoryBot.build(:character_attribute)
+                                    ))
   end
 
-  it "renders attributes in <p>" do
+  it 'renders attributes in <p>' do
     render
     expect(rendered).to match(/Name/)
     expect(rendered).to match(/2/)

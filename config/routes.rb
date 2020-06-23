@@ -1,5 +1,6 @@
-Rails.application.routes.draw do
+# frozen_string_literal: true
 
+Rails.application.routes.draw do
   devise_for :users
   resources :tasks
   resources :monsters
@@ -7,6 +8,6 @@ Rails.application.routes.draw do
   resources :characters
   resources :character_classes
 
-  root :to => "home#show"
+  root to: 'home#show'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
